@@ -3,10 +3,8 @@
 NUMBER=$1
 
 if [ $NUMBER -gt 10 ]
-{
-    echo "given Number $NUMBER is greater than 10"
-}
-    else {
-    echo "given number $NUMBER is lessthan 10"
-
-}
+then
+echo "given number $NUMBER is greaterthan 10"
+else
+echo "given number $NUMBER is not greaterthan 10"
+fi
