@@ -6,12 +6,18 @@ Y="\e[33m"
 N="\e[0m"
 
 
-USERID=$(id -u)
-LOG_FOLDER="/var/log/shellscript-logs"
-SCRIPTNAME= $(echo $0 | cut -d "." f1)
-LOG_FILE="$LOG_FOLDER/$SCRIPTNAME.log"
+# USERID=$(id -u)
+# LOG_FOLDER="/var/log/shellscript-logs"
+# SCRIPTNAME= $(echo $0 | cut -d "." f1)   $(echo $0 | cut -d "." -f1)
+# LOG_FILE="$LOG_FOLDER/$SCRIPTNAME.log"
 
-mkdir -p $LOG_FOLDER
+# mkdir -p $LOG_FOLDER
+
+LOGS_FOLDER="/var/log/shellscript-logs"
+SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
+LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log"
+
+mkdir -p $LOGS_FOLDER
 
 echo -e "$Y script executed at: $(date) $N" | tee -a $LOG_FILE
 
