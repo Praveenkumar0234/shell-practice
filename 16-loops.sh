@@ -38,7 +38,8 @@ if [ $1 -eq 0 ]
 
 for pacakage in ${PACKAGES[@]}
 do
-   if [ $? -ne 0 ]
+    dnf list installed $pacakage &>>$LOG_FILE
+    if [ $? -ne 0 ]
     then 
     echo -e "$Y $pacakage is not installed...going to install it $N" | tee -a $LOG_FILE
     dnf install $pacakage -y &>>$LOG_FILE
