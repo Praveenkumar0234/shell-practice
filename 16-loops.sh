@@ -36,7 +36,8 @@ if [ $1 -eq 0 ]
     fi
 }
 
-for pacakage in ${PACKAGES[@]}
+#for pacakage in ${PACKAGES[@]}
+for pacakage in $@
 do
     dnf list installed $pacakage &>>$LOG_FILE
     if [ $? -ne 0 ]
