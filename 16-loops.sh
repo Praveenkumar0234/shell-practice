@@ -46,7 +46,7 @@ do
     else
     echo -e "$Y $pacakage has already installed....nothing to do $N" | tee -a $LOG_FILE
 fi 
-then
+
 
 # dnf list installed mysql &>>$LOG_FILE
 
