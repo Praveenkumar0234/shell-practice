@@ -10,7 +10,10 @@ USERID=$(id -u)
 LOG_FOLDER="/var/log/shellscript-logs"
 SCRIPTNAME= $(echo $0 | cut -d "." f1)
 LOG_FILE="$LOG_FOLDER/$SCRIPTNAME.log"
+
 mkdir -p $LOG_FOLDER
+
+echo -e "$Y script executed at: $(date) $N" | tee -a $LOG_FILE
 
 
 if [ $USERID -ne 0 ]  
@@ -37,7 +40,7 @@ if [ $? -ne 0 ]
 then 
     echo -e "$Y mysql is not installed...going to install it $N" | tee -a $LOG_FILE
     dnf install mysql -y &>>$LOG_FILE
-    validate $? "mysql"
+    VALIDATE $? "mysql"
 else
     echo -e "$Y mysql has already installed....nothing to do $N" | tee -a $LOG_FILE
 fi
@@ -49,7 +52,7 @@ if [ $? -ne 0 ]
 then 
     echo -e "$Y nginx is not installed...going to install it $G" | tee -a $LOG_FILE
     dnf install nginx -y &>>$LOG_FILE
-    validate $? "nginx"
+    VALIDATE $? "nginx"
 else
     echo -e "$Y nginx has already installed....nothing to do $N" | tee -a $LOG_FILE
 fi
@@ -61,7 +64,7 @@ if [ $? -ne 0 ]
 then 
     echo -e "$Y python is not installed...going to install it $N" | tee -a $LOG_FILE
     dnf install python3 -y &>>$LOG_FILE
-    validate $? "python"
+    VALIDATE $? "python"
 else
     echo -e "$Y python has already installed....nothing to do $N" | tee -a $LOG_FILE
 fi
