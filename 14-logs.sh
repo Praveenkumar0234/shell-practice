@@ -6,7 +6,7 @@ Y="\e[33m"
 N="\e[0m"
 
 
-# USERID=$(id -u)
+USERID=$(id -u)
 # LOG_FOLDER="/var/log/shellscript-logs"
 # SCRIPTNAME= $(echo $0 | cut -d "." f1)   $(echo $0 | cut -d "." -f1)
 # LOG_FILE="$LOG_FOLDER/$SCRIPTNAME.log"
