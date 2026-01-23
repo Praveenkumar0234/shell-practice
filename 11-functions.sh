@@ -11,7 +11,7 @@ else
 fi
 
 VALIDATE () {
-if [ $! -eq 0 ]
+if [ $1 -eq 0 ]
     then  
         echo "$2 installation is sucessful"
     else
@@ -26,7 +26,7 @@ if [ $? -ne 0 ]
 then 
     echo "mysql is not installed...going to install it"
     dnf install mysql -y
-    validate $1 "mysql"
+    validate $? "mysql"
 else
     echo "mysql has already installed....nothing to do"
 fi
@@ -38,7 +38,7 @@ if [ $? -ne 0 ]
 then 
     echo "nginx is not installed...going to install it"
     dnf install nginx -y
-    validate $1 "nginx"
+    validate $? "nginx"
 else
     echo "nginx has already installed....nothing to do"
 fi
@@ -50,7 +50,7 @@ if [ $? -ne 0 ]
 then 
     echo "python is not installed...going to install it"
     dnf install python3 -y
-    validate $1 "python"
+    validate $? "python"
 else
     echo "python has already installed....nothing to do"
 fi
