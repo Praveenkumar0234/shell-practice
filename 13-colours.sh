@@ -10,7 +10,7 @@ USERID=$(id -u)
 
 if [ $USERID -ne 0 ]  
 then 
-    echo "$R ERROR:: User doesn't have root previllages to run the script $N"
+    echo -e "$R ERROR:: User doesn't have root previllages to run the script $N"
     exit 1
 else
     echo "user is running with root acess"
