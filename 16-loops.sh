@@ -36,7 +36,7 @@ if [ $1 -eq 0 ]
     fi
 }
 
-for pacakage in {$PACKAGES[@]}
+for pacakage in ${PACKAGES[@]}
 do
    if [ $? -ne 0 ]
     then 
